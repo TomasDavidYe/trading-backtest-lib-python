@@ -1,0 +1,17 @@
+ACTIONS = 'actions'
+POSITIONS = 'positions'
+
+OPEN = 'open'
+HIGH = 'high'
+LOW = 'low'
+CLOSE = 'close'
+VOLUME = 'volume'
+DATE = 'date'
+SYMBOL = 'symbol'
+MISSING_DATA = 'missing_data'
+
+CAPITAL = 'capital'
+CAPITAL_BEFORE = 'capital_before'
+CAPITAL_AFTER = 'capital_after'
+PROFIT = 'profit'
+COMMISSION = 'commission'
