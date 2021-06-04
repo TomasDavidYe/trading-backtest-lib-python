@@ -82,16 +82,16 @@ class TradeExecutionService:
             } for index, date in self.indices
         ])
 
-        plt.plot(profit_df[DATE],
+        plt.plot(profit_df.index,
                  profit_df[CAPITAL_AFTER],
                  color="cornflowerblue",
-                 label="y_pred",
+                 label="Strategy Performance",
                  linewidth=2)
         plt.title(
-            f'Performance between {self.indices[0][1]} and {self.indices[-1][1]} starting from {self.starting_capital}$')
-        plt.xlabel(f'time')
+            f'Date Range = {self.indices[0][1]} - {self.indices[-1][1]}')
+        plt.xlabel('Days')
         plt.ylabel('capital in $')
-        plt.legend(loc='upper left')
+        plt.legend(loc='lower left')
         plt.show()
 
     def has_next_step(self) -> bool:

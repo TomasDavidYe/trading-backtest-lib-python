@@ -13,7 +13,7 @@ class CandleExp(Expression):
         try:
             return df.loc[index + self.shift][self.column]
         except KeyError as e:
-            raise Exception(f'Key Error for INDEX = {index}, COLUMN = {self.column}, SHIFT = {self.shift},   ORIGINAL ERROR -> {e}')
+            raise Exception(f'Key Error for INDEX = {index}, COLUMN = {self.column}, SHIFT = {self.shift},   ORIGINAL ERROR -> {str(e)}')
 
     def __repr__(self):
         if self.shift == 0:

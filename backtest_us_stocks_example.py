@@ -14,7 +14,7 @@ indices, candle_dict = DatasetProviderService(
 ).get_candles_for_backtest(
     file_path='./data/yahoo_data_us.csv',
     start_date='2020-01-01',
-    end_date='2020-03-01',
+    end_date='2020-06-01',
     date_shift=15
 )
 
@@ -27,7 +27,7 @@ instructions = [
     ]))),
 
     open_position(on_market_open(buy(rules=[
-        (sma(-1, 5) - sma(-1, 15)) / sma(-1, 15) >= const(0.05)
+        (sma(-1, 5) - sma(-1, 15)) / sma(-1, 15) >= const(0.01)
     ])))
 ]
 
