@@ -4,6 +4,8 @@ If so, then this package can help you.
 
 I myself have spent significant amount of time developing trading backtesting frameworks and am eager to share the code with you to help you get started.
 
+With the framework comes a set of utility functions which enables users to express simple trading strategies in a few lines of code and back test them on past data. 
+
 Below are instructions how to install and run the package. Reach out to me if you have problems running it or you would like to contribute :)
 
 ## How to install
@@ -26,8 +28,11 @@ indices, candle_dict = DatasetProviderService(
 ```
 
 ## Initialize algorithm
+The code below defines and algorithm which buys a stock (opens a position), when 5 day Simple Moving Average (SMA) is 1% higher than the 15 day SMA and sells it (closes the position) when the 5 day SMA goes back below 15 day SMA 
+
+
 ```python
-# Instructions are evaluated in a descending priority order with 1 action per symbol each candle
+
 instructions = [
     close_position(on_market_open(TradeActionInstruction(rules=[
         (sma(-1, 5) - sma(-1, 15)) <= const(0)
@@ -43,6 +48,8 @@ algorithm = RuleBasedAlgorithm(
     logger=logger
 )
 ```
+
+Instructions are evaluated in a descending priority order with 1 action per symbol each candle.
 
 ## Run Backtest with Algorithm on dataset
 ```python
