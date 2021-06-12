@@ -75,3 +75,18 @@ pyton3 backtest_us_stocks_example.py
 ```
 
 ![](https://i.imgur.com/YTQKRYB.png)
+
+## Create Your Own Algorithms
+In case you want to design other algorithms via the framework, feel free to look at the [**expression_shortcuts**](./backtest_execution/expressions/expression_shortcuts.py) to see what expressions are currently implemented and you can combine them however you want to create a new trading strategy. 
+
+If you want to create a new expression, you will need to create a new implementation of the [**Expression**](./backtest_execution/expressions/Expression.py). The key here is to implement the **.evaluate(index, df)** method which encodes how a value at a given index in the candle time series is evaluated. To get inspired, please have a look at how the simple expressions (found in [**expression_shortcuts**](./backtest_execution/expressions/expression_shortcuts.py)) are implemented. 
+
+A nice feature of expressions is that they can be combined via arithmetic operations. This way, you can build very complex expressions from a few simple building blocks. To see this, take a look at how the Simple Moving Average indicator (SMA) is implemented in [**expression_shortcuts**](./backtest_execution/expressions/expression_shortcuts.py). 
+ 
+
+## Contribute
+This library is still very basic and miles away from a full-fledged back-testing framework for trading algorithms. Here are several ways I can see this to grow:
+1. Implement more indicators by overriding the [**Expression**](./backtest_execution/expressions/Expression.py) class. For example, EMA or Boilinger bands are great candidates
+1. Optimisation of the [**TradeExecutionService**](./services/TradeExecutionService.py). Currently, the back-tests take a while when running over a long period.
+
+If you would like to contribute in any of the above (or some other way), ping me and let's discuss it :) I am super happy for any joint cooperation!
